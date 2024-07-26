@@ -22,7 +22,7 @@ import { Router } from "@angular/router";
 export class LoginComponent {
   hide = signal(true);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());

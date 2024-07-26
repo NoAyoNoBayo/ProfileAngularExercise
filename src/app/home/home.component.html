@@ -72,8 +72,117 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <div class="flex flex-row w-full">
-      <div class="flex justify-content-center w-full">placeholder</div>
-      <div class="flex justify-content-center w-full">placeholder</div>
+      <div class="flex justify-content-center w-full">
+        <mat-card
+          appearance="outlined"
+          class="creditCard w-6"
+          style="height: fit-content"
+        >
+          <mat-card-header class="pb-4">
+            <div
+              class="flex flex-row w-full justify-content-between align-items-center gap-8 p-2"
+            >
+              <mat-icon-button
+                appearance="outlined"
+                matSuffix
+                style="padding: 5px; color: #3d429a"
+              >
+                <mat-icon
+                  fontIcon="home"
+                  (click)="goHome()"
+                  class="cursor-pointer"
+                ></mat-icon>
+              </mat-icon-button>
+              <div class="flex flex-column align-items-end">
+                <div class="text-xs" style="color: #3d429a">
+                  Available Balance
+                </div>
+                <div class="text-lg" style="color: #2e3275">
+                  <strong>€ 2,730.67</strong> EUR
+                </div>
+              </div>
+            </div>
+          </mat-card-header>
+          <mat-card-actions class="mt-4">
+            <div class="flex flex-row w-full justify-content-between">
+              <div class="flex flex-column w-full align-items-start">
+                <div class="text-sm" style="color: #9d235e">
+                  Finuevo Premium
+                </div>
+                <div class="text-base" style="color: #2e3275">
+                  GR345234253454562430
+                </div>
+              </div>
+              <div class="flex flex-column w-full align-items-end">
+                <mat-icon-button
+                  appearance="outlined"
+                  matSuffix
+                  style="color: #3d429a"
+                >
+                  <mat-icon fontIcon="edit"></mat-icon>
+                </mat-icon-button>
+                <mat-icon-button matSuffix style="color: #3d429a">
+                  <mat-icon fontIcon="content_copy"></mat-icon>
+                </mat-icon-button>
+              </div>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="flex justify-content-center w-full">
+        <mat-card class="flex w-11">
+          <mat-card-header class="flex w-11">
+            <div
+              class="flex flex-row w-full align-items-center justify-content-center"
+            >
+              <div class="flex flex-column w-full align-items-center">
+                <mat-form-field class="flex w-10" appearance="outline">
+                  <input matInput placeholder="Search by keyword" />
+                  <mat-icon matPrefix>search</mat-icon>
+                </mat-form-field>
+                <div class="flex flex-row pl-2 gap-2 p-2 w-full">
+                  <mat-icon fontIcon="exit_to_app"></mat-icon>
+                  <div class="text-lg">Export</div>
+                </div>
+                <div class="flex flex-row align-items-center p-2 gap-2 w-full">
+                  <div class="flex flex-column">
+                    <div class="text-lg">LATEST TRANSACTIONS</div>
+                    <div class="text-xs">
+                      You can tap any transaction below to initiate a new one
+                      with the same information
+                    </div>
+                  </div>
+                  <mat-icon fontIcon="filter_list"></mat-icon>
+                </div>
+                <div class="flex flex-column w-full">
+                  <div class="flex flex-column gap-2 w-full">
+                    <div
+                      *ngFor="let transaction of transactions"
+                      class="flex flex-row w-full justify-content-between align-items-end"
+                      style="border-bottom: 1px solid black"
+                    >
+                      <div class="flex flex-column">
+                        <div class="text-xs">{{ transaction.date | date }}</div>
+                        <div style="color: #2e3275" class="text-lg">
+                          {{ transaction.title }}
+                        </div>
+                        <div class="text-xs">{{ transaction.subtitle }}</div>
+                      </div>
+                      <div class="flex flex-column w-full align-items-end">
+                        <div>
+                          {{
+                            transaction.amount + " " + transaction.currencyCode
+                          }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-header>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,10 @@
+.creditCard {
+  background-color: #ffffff;
+  opacity: 1;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #ffffff 40px
+    ),
+    repeating-linear-gradient(#c7c9f755, #c7c9f7);
+}

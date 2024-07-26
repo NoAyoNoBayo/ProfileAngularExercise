@@ -1,12 +1,12 @@
-<mat-toolbar>
-  <mat-toolbar-row style="background: #f4f5fb">
+<mat-toolbar class="p-2" style="background: #f4f5fb">
+  <mat-toolbar-row>
     <div
-      class="flex w-full flex-row justify-content-between align-items-center"
+      class="flex w-full flex-row justify-content-between align-items-center p-1 pb-2 pt-2"
     >
       <img
         ngSrc="/assets/millenia.png"
-        width="150"
-        height="100"
+        width="120"
+        height="80"
         alt="millenia logo"
       />
     </div>
@@ -14,27 +14,66 @@
       <mat-icon fontIcon="mail" style="color: #3d429a"></mat-icon>
       <mat-icon fontIcon="settings_power" style="color: #3d429a"></mat-icon>
       <div class="flex flex-row gap-3 align-items-center">
-        <div class="flex flex-column align-items-end justify-items-around">
-          <div style="color: #3d429a; font-size: 14px">Hello</div>
-          <div style="color: #3d429a; font-size: 10px">Username</div>
+        <div class="flex flex-column align-items-end">
+          <span style="color: #3d429a; font-size: 14px; line-height: normal"
+            >Hello</span
+          >
+          <span style="color: #3d429a; font-size: 10px; line-height: normal"
+            >Username</span
+          >
         </div>
         <mat-icon fontIcon="account_circle" style="color: #3d429a"></mat-icon>
       </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-sidenav-container class="h-full">
-  <mat-sidenav mode="side" opened>
-    <div class="flex flex-column w-full justify-content-center">
-      <img
-        ngSrc="/assets/millenia.png"
-        width="150"
-        height="100"
-        alt="millenia logo"
-      />
-      <mat-icon>dashboard</mat-icon>
-      <mat-icon>swap_horiz</mat-icon>
+<div class="flex flex-row">
+  <div class="flex flex-column p-5 gap-8 pt-8">
+    <div class="flex flex-column align-items-center cursor-pointer">
+      <mat-icon fontIcon="dashboard" style="color: #3d429a"></mat-icon>
+      <div class="text-lg" style="color: #3d429a">Dashboard</div>
     </div>
-  </mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
-</mat-sidenav-container>
+    <div class="flex flex-column align-items-center cursor-pointer">
+      <mat-icon fontIcon="equalizer" style="color: #3d429a"></mat-icon>
+      <div class="text-lg" style="color: #3d429a">Portfolio</div>
+    </div>
+    <div class="flex flex-column align-items-center cursor-pointer">
+      <mat-icon fontIcon="sync_alt" style="color: #3d429a"></mat-icon>
+      <div class="text-lg" style="color: #3d429a">Transactions</div>
+    </div>
+  </div>
+  <div
+    class="flex flex-column align-content-center w-full mr-6"
+    style="
+      background-image: linear-gradient(to right, #404197, #9a2460);
+      border-top-right-radius: 90px;
+      border-bottom-left-radius: 90px;
+    "
+  >
+    <mat-toolbar class="p-2" style="background: none">
+      <mat-toolbar-row>
+        <div
+          class="flex flex-row w-full justify-content-between align-items-center"
+        >
+          <mat-icon
+            fontIcon="arrow_forward"
+            style="color: white; transform: rotate(3.142rad)"
+          ></mat-icon>
+          <div class="flex w-full justify-content-center">
+            <div class="flex flex-row gap-6" style="color: #fff">
+              <div class="text-lg cursor-pointer" style="color: #d84e91">
+                History
+              </div>
+              <div class="text-lg cursor-pointer">Info</div>
+              <div class="text-lg cursor-pointer">Statements</div>
+            </div>
+          </div>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="flex flex-row w-full">
+      <div class="flex justify-content-center w-full">placeholder</div>
+      <div class="flex justify-content-center w-full">placeholder</div>
+    </div>
+  </div>
+</div>

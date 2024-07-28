@@ -108,6 +108,7 @@ dist
 .docusaurus
 
 # Serverless directories
+.DS_Store
 .serverless/
 
 # FuseBox cache

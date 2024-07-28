@@ -1,4 +1,4 @@
-<mat-toolbar class="p-2" style="background: #f4f5fb">
+<mat-toolbar class="p-2" style="background: #f4f5fb" id="header">
   <mat-toolbar-row>
     <div
       class="flex w-full flex-row justify-content-between align-items-center p-1 pb-2 pt-2"
@@ -8,6 +8,7 @@
         width="120"
         height="80"
         alt="millenia logo"
+        (click)="goHome()"
       />
     </div>
     <div class="flex align-items-center gap-5">
@@ -28,14 +29,14 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="flex flex-row">
-  <div class="flex flex-column p-5 gap-8 pt-8">
+  <div class="flex flex-column p-5 gap-8 pt-8" id="sidebar">
     <div class="flex flex-column align-items-center cursor-pointer">
       <mat-icon fontIcon="dashboard" style="color: #3d429a"></mat-icon>
       <div class="text-lg" style="color: #3d429a">Dashboard</div>
     </div>
     <div class="flex flex-column align-items-center cursor-pointer">
-      <mat-icon fontIcon="equalizer" style="color: #3d429a"></mat-icon>
-      <div class="text-lg" style="color: #3d429a">Portfolio</div>
+      <mat-icon fontIcon="equalizer" style="color: #d84e91"></mat-icon>
+      <div class="text-lg" style="color: #d84e91">Portfolio</div>
     </div>
     <div class="flex flex-column align-items-center cursor-pointer">
       <mat-icon fontIcon="sync_alt" style="color: #3d429a"></mat-icon>
@@ -44,6 +45,7 @@
   </div>
   <div
     class="flex flex-column align-content-center w-full mr-6"
+    id="gradient_container"
     style="
       background-image: linear-gradient(to right, #404197, #9a2460);
       border-top-right-radius: 90px;
@@ -60,7 +62,11 @@
             style="color: white; transform: rotate(3.142rad)"
           ></mat-icon>
           <div class="flex w-full justify-content-center">
-            <div class="flex flex-row gap-6" style="color: #fff">
+            <div
+              class="flex flex-row gap-6"
+              style="color: #fff"
+              id="desktop_options"
+            >
               <div class="text-lg cursor-pointer" style="color: #d84e91">
                 History
               </div>
@@ -71,12 +77,18 @@
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
-    <div class="flex flex-row w-full">
-      <div class="flex justify-content-center w-full">
+    <div class="flex flex-row w-full" id="gradient_inner_container">
+      <div
+        class="flex flex-column justify-content-start align-items-start pl-4"
+        id="credit_card_container"
+      >
+        <div class="pb-3 align-self-start text-3xl" style="color: white">
+          Current Accounts
+        </div>
         <mat-card
           appearance="outlined"
           class="creditCard w-6"
-          style="height: fit-content"
+          style="height: fit-content; width: fit-content !important"
         >
           <mat-card-header class="pb-4">
             <div
@@ -94,10 +106,16 @@
                 ></mat-icon>
               </mat-icon-button>
               <div class="flex flex-column align-items-end">
-                <div class="text-xs" style="color: #3d429a">
+                <div
+                  class="text-xs"
+                  style="color: #3d429a; white-space: nowrap"
+                >
                   Available Balance
                 </div>
-                <div class="text-lg" style="color: #2e3275">
+                <div
+                  class="text-lg"
+                  style="color: #2e3275; white-space: nowrap"
+                >
                   <strong>€ 2,730.67</strong> EUR
                 </div>
               </div>
@@ -135,9 +153,28 @@
             <div
               class="flex flex-row w-full align-items-center justify-content-center"
             >
-              <div class="flex flex-column w-full align-items-center">
-                <mat-form-field class="flex w-10" appearance="outline">
-                  <input matInput placeholder="Search by keyword" />
+              <div
+                class="flex flex-column w-full align-items-center"
+                style="color: #6267c1"
+              >
+                <div
+                  class="flex-row gap-6"
+                  style="display: none"
+                  id="mobile_options_container"
+                >
+                  <div class="text-lg cursor-pointer">History</div>
+                  <div class="text-lg cursor-pointer">Info</div>
+                  <div class="text-lg cursor-pointer">Statements</div>
+                </div>
+                <mat-form-field
+                  class="flex w-10"
+                  appearance="outline"
+                  id="search_bar"
+                >
+                  <input
+                    matInput
+                    placeholder="Search by keyword, beneficiary or whatever"
+                  />
                   <mat-icon matPrefix>search</mat-icon>
                 </mat-form-field>
                 <div class="flex flex-row pl-2 gap-2 p-2 w-full">
@@ -155,7 +192,10 @@
                   <mat-icon fontIcon="filter_list"></mat-icon>
                 </div>
                 <div class="flex flex-column w-full">
-                  <div class="flex flex-column gap-2 w-full">
+                  <div
+                    class="flex flex-column gap-2 w-full"
+                    *ngIf="transactions"
+                  >
                     <div
                       *ngFor="let transaction of transactions"
                       class="flex flex-row w-full justify-content-between align-items-end"
@@ -185,4 +225,10 @@
       </div>
     </div>
   </div>
+</div>
+<div class="button-container">
+  <button id="new_transaction_button" class="p-2" mat-fab extended>
+    <mat-icon fontIcon="add"></mat-icon>
+    New Transaction
+  </button>
 </div>
